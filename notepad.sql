@@ -21,8 +21,8 @@ WHERE students.start_date <> cohorts.start_date
 ORDER BY cohorts.start_date;
 
 -- HAVING
-SELECT students.name as student, count(assignment_submissions.*) as total_submissions
+SELECT students.name as student, count(assignment_submissions.id) as total_submissions
 FROM assignment_submissions
 JOIN students ON students.id = student_id
 GROUP BY students.name
-HAVING COUNT(assignment_submissions.*) < 100;
+HAVING COUNT(assignment_submissions.id) < 100;
